@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Theme{% endblock %}
+
+{% block body %}
+    <h1>Theme</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ theme.id }}</td>
+            </tr>
+            <tr>
+                <th>Sujet</th>
+                <td>{{ theme.sujet }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ theme.date ? theme.date|date('Y-m-d') : '' }}</td>
+            </tr>
+            
+        </tbody>
+    </table>
+
+    <a href="{{ path('theme_index') }}">back to list</a>
+
+    <a href="{{ path('theme_edit', {'id': theme.id}) }}">edit</a>
+
+    {{ include('theme/_delete_form.html.twig') }}
+{% endblock %}
